@@ -8,6 +8,7 @@ import (
 const (
 	announceKey = "8:announce"
 	piecesKey   = "6:pieces"
+	infoKey     = "4:info"
 )
 
 func readUntilBytes(r *bufio.Reader, target []byte) ([]byte, error) {
@@ -61,10 +62,4 @@ func readString(r *bufio.Reader, length int) (string, error) {
 	str := make([]byte, length)
 	_, err := r.Read(str)
 	return string(str), err
-}
-
-func readBlob(r *bufio.Reader, length int) ([]byte, error) {
-	blob := make([]byte, length)
-	_, err := r.Read(blob)
-	return blob, err
 }
